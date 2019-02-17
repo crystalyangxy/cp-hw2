@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<meta charset="utf-8" />
+</head>
+<body>
+<script>
+
+function setup() {
+createCanvas(400, 400);
+}
+
+var ball = 0;
+var ballSpeed = 10;
+var ballChangeX = ballSpeed;
+
+var ball2 = 100;
+var ballSpeed2 = 5;
+var ballChangeX2 = ballSpeed2;
+
+var ball3 = 100;
+var ballSpeed3 = 10;
+var ballChangeX3 = ballSpeed3;
+
+var ball4 = 100;
+var ballSpeed4 = 15;
+var ballChangeX4 = ballSpeed4;
+
+var ball5 = 0;
+var ballSpeed5 = 10;
+var ballChangeX5 = ballSpeed5;
+
+var ball6 = 0;
+var ballSpeed6 = 20;
+var ballChangeX6 = ballSpeed6;
+
+
+function draw() {
+    background(240);
+    noStroke();
+    strokeCap(SQUARE);
+
+    // blue square
+    fill(0, 0, 255);
+    rect(0, 320, 80, 80);
+
+    // red square
+    fill(255, 0, 0);
+    rect(80, 0, 320, 320);
+
+    // yellow square
+    fill(255, 255, 0);
+    rect(370, 360, 30, 40);
+
+    stroke(0);
+    strokeWeight(10);
+    line(80, 0, 80, 400);     // left line
+    line(0, 320, 400, 320);   // middle line
+    line(370, 320, 370, 400); // right
+
+    strokeWeight(15);
+    line(370, 360, 400, 360); // bottom
+
+    strokeWeight(20);
+    line(0, 160, 80, 160);
+
+
+  ellipse(ball, height/2, 100);
+  ellipse(ball2, height/4, 75);
+	ellipse(ball3, height/6, 50);
+	ellipse(ball4, height/8, 40);
+	ellipse(ball5, height/1, 50);
+	ellipse(ball6, height/2, 70);
+  ball = ball + ballChangeX;
+  ball2 = ball2 + ballChangeX2;
+	ball3 = ball3 + ballChangeX3;
+  ball4 = ball4 + ballChangeX4;
+	ball5 = ball5 + ballChangeX5;
+  ball6 = ball6 + ballChangeX6;
+
+  // Check if ball is off right hand side of screen
+  if (ball >= width) {
+    ballChangeX = -ballSpeed;
+  }
+  if (ball2 >= width) {
+    ballChangeX2 = -ballSpeed2;
+  }
+	  if (ball3 >= width) {
+    ballChangeX3 = -ballSpeed3;
+  }
+  if (ball4 >= width) {
+    ballChangeX4= -ballSpeed4;
+  }
+	if (ball5 >= width) {
+    ballChangeX5 = -ballSpeed5;
+  }
+  if (ball6 >= width) {
+    ballChangeX6 = -ballSpeed6;
+  }
+
+
+  // Check if ball is off left hand side of screen
+  if (ball <= 0) {
+    ballChangeX = ballSpeed;
+  }
+  if (ball2 <= 0) {
+    ballChangeX2 = ballSpeed2;
+  }
+	if (ball3<= 0) {
+    ballChangeX3 = ballSpeed3;
+  }
+  if (ball4 <= 0) {
+    ballChangeX4 = ballSpeed4;
+  }
+	 if (ball5 <= 0) {
+    ballChangeX5 = ballSpeed5;
+  }
+	 if (ball6 <= 0) {
+    ballChangeX6 = ballSpeed6;
+  }
+}
+</script>
+</body>
+</html>
